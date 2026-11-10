@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أكاديمية النخبة التعليمية | Elite Academy</title>
+  <meta name="description" content="المنصة التعليمية الفاخرة لمشاهدة شروحات الفيديو ومتابعة مستوى الطلاب وقسم رفع الواجبات وقنوات البث ونظام أكواد التفعيل المخصصة.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-black: #070A0F;
+      --surface-dark: #0F172A;
+      --surface-elevated: #162038;
+      --border-blue: #1E293B;
+      --border-glow: #2563EB;
+      --primary-blue: #2563EB;
+      --electric-cyan: #38BDF8;
+      --luxury-gold: #F59E0B;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --emerald: #10B981;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-black);
+      color: var(--text-main);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Ambient Glow background */
+    .glow-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(circle at 50% 20%, rgba(37, 99, 235, 0.15), transparent 60%),
+                  radial-gradient(circle at 80% 80%, rgba(56, 189, 248, 0.08), transparent 50%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    header {
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-blue);
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-badge {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--primary-blue), var(--electric-cyan));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
+    }
+
+    .brand-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .brand-subtitle {
+      font-size: 11px;
+      color: var(--electric-cyan);
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      padding: 10px 22px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-blue), #1D4ED8);
+      color: #FFF;
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.35);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 6px 25px rgba(37, 99, 235, 0.6);
+      transform: translateY(-2px);
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--luxury-gold), #D97706);
+      color: #070A0F;
+      font-weight: 800;
+      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+    }
+
+    .btn-gold:hover {
+      box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: rgba(22, 32, 56, 0.6);
+      border: 1px solid var(--border-blue);
+      color: var(--text-main);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--electric-cyan);
+      background: rgba(30, 41, 59, 0.8);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 70px 20px 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .pill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: rgba(37, 99, 235, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      border-radius: 30px;
+      font-size: 12px;
+      color: var(--electric-cyan);
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: 46px;
+      font-weight: 900;
+      margin-bottom: 20px;
+      line-height: 1.25;
+      background: linear-gradient(180deg, #FFFFFF 30%, #94A3B8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 35px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* Emulator & Preview Showcase */
+    .preview-section {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .app-card-wrapper {
+      background: var(--surface-dark);
+      border: 1px solid var(--border-blue);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      position: relative;
+    }
+
+    .app-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-blue);
+      margin-bottom: 20px;
+    }
+
+    .app-frame {
+      width: 100%;
+      height: 640px;
+      border: 1px solid var(--border-blue);
+      border-radius: 16px;
+      background: #000;
+    }
+
+    /* Features Grid */
+    .features {
+      max-width: 1100px;
+      margin: 80px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 40px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: var(--surface-dark);
+      border: 1px solid var(--border-blue);
+      border-radius: 18px;
+      padding: 24px;
+      transition: all 0.3s;
+    }
+
+    .feature-card:hover {
+      border-color: var(--primary-blue);
+      transform: translateY(-4px);
+    }
+
+    .feature-icon {
+      font-size: 32px;
+      margin-bottom: 14px;
+    }
+
+    .feature-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+
+    .feature-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Code Checker Section */
+    .code-checker {
+      max-width: 600px;
+      margin: 40px auto 80px;
+      background: var(--surface-dark);
+      border: 1px solid var(--border-blue);
+      border-radius: 20px;
+      padding: 28px;
+      text-align: center;
+    }
+
+    .code-input-group {
+      display: flex;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .code-input {
+      flex: 1;
+      padding: 12px 18px;
+      border-radius: 12px;
+      background: var(--surface-elevated);
+      border: 1px solid var(--border-blue);
+      color: #FFF;
+      font-size: 15px;
+      font-weight: 700;
+      text-align: center;
+      text-transform: uppercase;
+      outline: none;
+    }
+
+    .code-input:focus {
+      border-color: var(--primary-blue);
+    }
+
+    .code-result {
+      font-size: 14px;
+      font-weight: 700;
+      margin-top: 10px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-blue);
+      padding: 30px 20px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 32px; }
+      .app-frame { height: 500px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="glow-bg"></div>
+
+  <header>
+    <div class="brand">
+      <div class="logo-badge">🎓</div>
+      <div>
+        <div class="brand-title">أكاديمية النخبة</div>
+        <div class="brand-subtitle">المنصة التعليمية الفاخرة</div>
+      </div>
+    </div>
+    <div class="header-actions">
+      <a href="https://ais-pre-hlrkk3tltkgrac4njlmifn-194668606.europe-west2.run.app" target="_blank" class="btn btn-primary">
+        🚀 تشغيل المنصة
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="pill-tag">✨ منصة الجيل الجديد لشروحات الفيديو التفاعلية</div>
+      <h1>تعلم بأعلى المعايير الأكاديمية مع نخبة الأساتذة</h1>
+      <p>شروحات فيديو تفاعلية، تتبع دقيق لنسبة إنجاز وسماع المحاضرات 100%، قسم مخصص لرفع الواجبات، قنوات بث حية، ونظام اشتراكات بالأكواد المحددة المدة.</p>
+
+      <div class="hero-cta-group">
+        <a href="https://ais-pre-hlrkk3tltkgrac4njlmifn-194668606.europe-west2.run.app" target="_blank" class="btn btn-primary" style="padding: 14px 28px; font-size: 16px;">
+          ▶ تشغيل التطبيق في المتصفح فوراً
+        </a>
+        <a href="https://t.me" target="_blank" class="btn btn-outline" style="padding: 14px 24px;">
+          📢 قناة التيليجرام الرسمية
+        </a>
+        <a href="https://wa.me" target="_blank" class="btn btn-gold" style="padding: 14px 24px;">
+          💬 طلب كود تفعيل من المعلم
+        </a>
+      </div>
+    </section>
+
+    <!-- Live Platform Showcase -->
+    <section class="preview-section">
+      <div class="app-card-wrapper">
+        <div class="app-card-header">
+          <div>
+            <h3 style="font-size: 18px; font-weight: 800;">بث المنصة المباشر (Live Android Emulator)</h3>
+            <span style="font-size: 12px; color: var(--emerald);">● النظام متصل ويعمل سحابياً</span>
+          </div>
+          <a href="https://ais-pre-hlrkk3tltkgrac4njlmifn-194668606.europe-west2.run.app" target="_blank" class="btn btn-outline" style="font-size: 12px; padding: 6px 14px;">
+            تكبير الشاشة ↗
+          </a>
+        </div>
+        <iframe class="app-frame" src="https://ais-pre-hlrkk3tltkgrac4njlmifn-194668606.europe-west2.run.app" allow="camera; microphone; fullscreen; autoplay"></iframe>
+      </div>
+    </section>
+
+    <!-- Code Validator Widget -->
+    <section class="code-checker">
+      <h3 style="font-size: 18px; font-weight: 800; margin-bottom: 6px;">🔑 فحص صلاحية كود التفعيل</h3>
+      <p style="font-size: 12px; color: var(--text-muted);">تحقق من مدة وصلاحية كود اشتراكك الممنوح لك من المعلم:</p>
+
+      <div class="code-input-group">
+        <input type="text" id="codeInput" class="code-input" placeholder="مثال: ELITE-30D" value="ELITE-30D">
+        <button class="btn btn-primary" onclick="verifyCode()">فحص الكود</button>
+      </div>
+
+      <div id="codeResult" class="code-result" style="color: var(--emerald);">
+        ✓ كود صالح ومعتمد: يمنحك 30 يوماً وصول كامل لجميع الشروحات والواجبات
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+      <h2 class="section-title">أقسام المنصة المتكاملة</h2>
+      <p class="section-subtitle">تم تصميم كل قسم لتوفير تجربة تعليمية لا مثيل لها للطالب والمعلم</p>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🎬</div>
+          <h3 class="feature-title">شروحات فيديو متقدمة</h3>
+          <p class="feature-desc">محاضرات مصنفة حسب الوحدات والمواد، مشغل ذكي مع إمكانية تسريع الفيديو 1.25x إلى 2.0x وتنزيل ملازم PDF المرفقة.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3 class="feature-title">مستوى الطالب وسجل المشاهدة</h3>
+          <p class="feature-desc">إحصائيات دقيقة تحسب عدد الفيديوهات التي سمعها الطالب بالكامل 100% ونسبة إنجاز المنهج والرتبة التقديرية وساعات التعلم.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📝</div>
+          <h3 class="feature-title">قسم رفع وتصحيح الواجبات</h3>
+          <p class="feature-desc">يتمكن الطالب من إرسال حل الواجب بالخطوات وإرفاق صور الكشكول أو ملفات PDF، مع مراجعة وتقييم فوري من المعلم.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📢</div>
+          <h3 class="feature-title">قنوات بث مثل تيليجرام</h3>
+          <p class="feature-desc">إعلانات وتنبيهات فورية تدعم نشر الملازم والصور والملفات الصوتية والتفاعل بالرموز التعبيرية مع شارات توثيق رسمية.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🔑</div>
+          <h3 class="feature-title">نظام أكواد التفعيل بالأيام</h3>
+          <p class="feature-desc">توليد أكواد فريدة لكل طالب محددة المدة (7، 30، 60، 90، أو 365 يوماً)، ويتم احتساب وتجديد الاشتراك بدقة.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">👑</div>
+          <h3 class="feature-title">بوابة المعلم والمالك المحمية</h3>
+          <p class="feature-desc">لوحة تحكم كاملة برمز PIN سري مشفر للمالك لتوليد الأكواد وإدارتها، رفع الفيديوهات، تصحيح الواجبات، وبث الرسائل.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 أكاديمية النخبة التعليمية (Elite Academy) • جميع الحقوق محفوظة</p>
+    <p style="margin-top: 6px; font-size: 11px;">تم النشر بنجاح ومتوافق مع Vercel و Android</p>
+  </footer>
+
+  <script>
+    const demoCodes = {
+      "ELITE-30D": { days: 30, note: "كود النخبة الشامل" },
+      "VIP-60D": { days: 60, note: "كود كبار المشتركين VIP" },
+      "TEST-7D": { days: 7, note: "كود التجربة الأسبوعي" },
+      "SUPER-90D": { days: 90, note: "كود الفصل الدراسي الكامل" }
+    };
+
+    function verifyCode() {
+      const input = document.getElementById('codeInput').value.trim().toUpperCase();
+      const resultEl = document.getElementById('codeResult');
+
+      if (!input) {
+        resultEl.style.color = '#F43F5E';
+        resultEl.innerText = 'يرجى كتابة الكود أولاً!';
+        return;
+      }
+
+      if (demoCodes[input] || input.startsWith('ELITE-')) {
+        const days = demoCodes[input] ? demoCodes[input].days : (input.match(/(\d+)D$/) ? input.match(/(\d+)D$/)[1] : 30);
+        resultEl.style.color = '#10B981';
+        resultEl.innerText = `✓ كود صالح ومعتمد! يمنحك ${days} يوماً وصول كامل لجميع خدمات المنصة.`;
+      } else {
+        resultEl.style.color = '#F43F5E';
+        resultEl.innerText = '✕ كود غير معروف! تواصل مع المعلم عبر واتساب للحصول على كود جديد.';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "name": "أكاديمية النخبة",
+  "description": "منصة تعليمية فاخرة لمشاهدة شروحات الفيديو ومتابعة تقدم الطلاب وقسم رفع الواجبات وقناة بث تيليجرام ونظام أكواد تفعيل مخصص.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

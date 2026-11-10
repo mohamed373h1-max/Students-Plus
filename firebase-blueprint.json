@@ -1,0 +1,41 @@
+{
+  "entities": {
+    "UserProfile": {
+      "collection": "users",
+      "fields": {
+        "userId": { "type": "string", "description": "User identifier" },
+        "studentName": { "type": "string", "description": "Student full name" },
+        "phoneNumber": { "type": "string", "description": "Student phone number" },
+        "activationCode": { "type": "string", "description": "Active activation code" },
+        "durationDays": { "type": "number", "description": "Subscription duration in days" },
+        "isOwner": { "type": "boolean", "description": "Whether user is teacher or platform owner" },
+        "createdAt": { "type": "timestamp", "description": "Creation timestamp" },
+        "updatedAt": { "type": "timestamp", "description": "Last update timestamp" }
+      }
+    },
+    "CloudActivationCode": {
+      "collection": "activation_codes",
+      "fields": {
+        "code": { "type": "string", "description": "Activation code string" },
+        "durationDays": { "type": "number", "description": "Validity period in days" },
+        "studentName": { "type": "string", "description": "Student note or name" },
+        "isUsed": { "type": "boolean", "description": "Whether code has been activated" },
+        "isActive": { "type": "boolean", "description": "Whether code is active or revoked" },
+        "createdAt": { "type": "number", "description": "Creation timestamp in millis" },
+        "activatedAt": { "type": "number", "description": "Activation timestamp in millis" }
+      }
+    },
+    "CloudVideoProgress": {
+      "collection": "video_progress",
+      "fields": {
+        "userId": { "type": "string", "description": "User identifier" },
+        "lessonId": { "type": "string", "description": "Video lesson ID" },
+        "watchedSeconds": { "type": "number", "description": "Seconds watched" },
+        "totalSeconds": { "type": "number", "description": "Total lesson seconds" },
+        "isCompleted": { "type": "boolean", "description": "Whether watched 100% completely" },
+        "timesWatched": { "type": "number", "description": "Number of times completed" },
+        "completedAt": { "type": "number", "description": "Completion timestamp in millis" }
+      }
+    }
+  }
+}
